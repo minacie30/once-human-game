@@ -1,35 +1,46 @@
 /* CSS Variables - Design System (Once Human Palette) */
 :root {
     /* Primary Accents */
-    --neon-cyan: #00e5ff; /* Slightly deeper, less bright cyan */
+    --neon-cyan: #00e5ff;
+    /* Slightly deeper, less bright cyan */
     --neon-cyan-glow: rgba(0, 229, 255, 0.4);
-    
+
     /* Atmosphere & Mutation */
-    --neon-purple: #7b2cbf; /* Darker, more menacing purple/magenta */
-    --neon-pink: #c9184a; /* Deep mutant red/pink */
-    
+    --neon-purple: #7b2cbf;
+    /* Darker, more menacing purple/magenta */
+    --neon-pink: #c9184a;
+    /* Deep mutant red/pink */
+
     /* Warnings & Highlights */
-    --emergency-orange: #ff8c2a; /* Orange base */
-    --emergency-orange-hover: #ff9940; /* Lighter orange hover */
-    
+    --emergency-orange: #ff8c2a;
+    /* Orange base */
+    --emergency-orange-hover: #ff9940;
+    /* Lighter orange hover */
+
     /* New CTA Gradient variables */
     --cta-gradient: linear-gradient(135deg, #ff2a7f, #b3122d);
     --cta-gradient-hover: linear-gradient(135deg, #ff4c94, #d31a38);
     --cta-shadow: 0 0 10px rgba(255, 42, 127, 0.5), 0 0 20px rgba(179, 18, 45, 0.4);
     --cta-shadow-hover: 0 0 15px rgba(255, 42, 127, 0.7), 0 0 25px rgba(179, 18, 45, 0.6);
-    
+
     /* Backgrounds & Panels */
-    --dark-bg: #07090b; /* Very dark teal/black */
-    --darker-bg: #030405; /* Almost true black with teal tint */
-    --card-bg: rgba(12, 18, 20, 0.9); /* Glassy dark grey/teal */
-    
+    --dark-bg: #07090b;
+    /* Very dark teal/black */
+    --darker-bg: #030405;
+    /* Almost true black with teal tint */
+    --card-bg: rgba(12, 18, 20, 0.9);
+    /* Glassy dark grey/teal */
+
     /* Text */
-    --text-primary: #e0e6ed; /* Slightly off-white for less eye strain */
-    --text-secondary: #8b9cad; /* Cool grey/blue */
+    --text-primary: #e0e6ed;
+    /* Slightly off-white for less eye strain */
+    --text-secondary: #8b9cad;
+    /* Cool grey/blue */
     --text-muted: #5a6b7c;
-    
+
     /* Borders & Gradients */
-    --border-glow: rgba(0, 229, 255, 0.15); /* Softer border glow */
+    --border-glow: rgba(0, 229, 255, 0.15);
+    /* Softer border glow */
     --gradient-hero: linear-gradient(135deg, rgba(7, 9, 11, 0.6) 0%, rgba(15, 20, 25, 0.4) 50%, rgba(5, 7, 9, 0.6) 100%);
 }
 
@@ -263,9 +274,12 @@ h6 {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     text-shadow:
-        0 0 5px rgba(0, 229, 255, 0.2), /* Softer inner glow */
-        0 0 15px rgba(0, 229, 255, 0.1), /* Reduced mid glow */
-        0 0 25px rgba(123, 44, 191, 0.1); /* Subtle dark purple outer glow */
+        0 0 5px rgba(0, 229, 255, 0.2),
+        /* Softer inner glow */
+        0 0 15px rgba(0, 229, 255, 0.1),
+        /* Reduced mid glow */
+        0 0 25px rgba(123, 44, 191, 0.1);
+    /* Subtle dark purple outer glow */
     background: linear-gradient(135deg, #ffffff 0%, var(--neon-cyan) 60%, var(--text-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -280,6 +294,7 @@ h6 {
             0 0 15px rgba(0, 229, 255, 0.1),
             0 0 25px rgba(123, 44, 191, 0.1);
     }
+
     to {
         text-shadow:
             0 0 2px rgba(0, 229, 255, 0.15),
@@ -511,7 +526,8 @@ h6 {
 /* Modern AAA Storefront Carousel */
 .game-gallery {
     position: relative;
-    padding: 6rem 0; /* Full width bleeding */
+    padding: 6rem 0;
+    /* Full width bleeding */
     background: linear-gradient(180deg, var(--dark-bg) 0%, #030405 100%);
     z-index: 1;
     overflow: hidden;
@@ -522,11 +538,13 @@ h6 {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    height: 500px; /* Base height for desktop */
+    height: 500px;
+    /* Base height for desktop */
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1200px; /* For 3D depth */
+    perspective: 1200px;
+    /* For 3D depth */
 }
 
 .carousel-track {
@@ -541,7 +559,8 @@ h6 {
 
 .carousel-slide {
     position: absolute;
-    width: 60%; /* Width of the active center slide */
+    width: 60%;
+    /* Width of the active center slide */
     height: 400px;
     border-radius: 12px;
     overflow: hidden;
@@ -552,7 +571,8 @@ h6 {
     /* Remove user selection to avoid dragging image ghosts */
     user-select: none;
     -webkit-user-drag: none;
-    pointer-events: none; /* Ignore clicks on hidden slides */
+    pointer-events: none;
+    /* Ignore clicks on hidden slides */
 }
 
 .carousel-slide img {
@@ -567,12 +587,17 @@ h6 {
     opacity: 1;
     transform: translateX(0) scale(1);
     z-index: 5;
-    box-shadow: 
-        0 0 0 2px rgba(255, 255, 255, 0.1), /* Existing thin white border */
-        0 25px 60px rgba(0, 0, 0, 0.9), /* Existing deep drop shadow */
-        0 0 30px var(--neon-cyan-glow), /* Inner glow */
-        0 0 60px rgba(0, 229, 255, 0.2); /* Outer neon light effect */
-    pointer-events: auto; /* Clickable */
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.1),
+        /* Existing thin white border */
+        0 25px 60px rgba(0, 0, 0, 0.9),
+        /* Existing deep drop shadow */
+        0 0 30px var(--neon-cyan-glow),
+        /* Inner glow */
+        0 0 60px rgba(0, 229, 255, 0.2);
+    /* Outer neon light effect */
+    pointer-events: auto;
+    /* Clickable */
 }
 
 .carousel-slide.active img {
@@ -580,7 +605,8 @@ h6 {
 }
 
 .carousel-slide.active:hover img {
-    transform: scale(1.03); /* Subtle zoom on active image hover */
+    transform: scale(1.03);
+    /* Subtle zoom on active image hover */
 }
 
 /* The immediate siblings */
@@ -588,7 +614,8 @@ h6 {
 .carousel-slide.next {
     opacity: 0.6;
     z-index: 4;
-    pointer-events: auto; /* Clickable */
+    pointer-events: auto;
+    /* Clickable */
 }
 
 .carousel-slide.prev {
@@ -700,43 +727,75 @@ h6 {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 1024px) {
     .carousel-container {
         height: 400px;
     }
+
     .carousel-slide {
         width: 70%;
         height: 300px;
     }
-    .carousel-slide.prev { transform: translateX(-30%) scale(0.85); }
-    .carousel-slide.next { transform: translateX(30%) scale(0.85); }
-    .carousel-slide.prev-far, .carousel-slide.next-far { display: none; }
+
+    .carousel-slide.prev {
+        transform: translateX(-30%) scale(0.85);
+    }
+
+    .carousel-slide.next {
+        transform: translateX(30%) scale(0.85);
+    }
+
+    .carousel-slide.prev-far,
+    .carousel-slide.next-far {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
     .carousel-container {
         height: 300px;
     }
+
     .carousel-slide {
         width: 90%;
         height: 250px;
     }
+
     /* Flat card stack on mobile */
-    .carousel-slide.active { transform: translateX(0) scale(1); }
-    .carousel-slide.prev { transform: translateX(-15%) scale(0.9); opacity: 0.3; }
-    .carousel-slide.next { transform: translateX(15%) scale(0.9); opacity: 0.3; }
-    
-    .carousel-prev, .carousel-next {
+    .carousel-slide.active {
+        transform: translateX(0) scale(1);
+    }
+
+    .carousel-slide.prev {
+        transform: translateX(-15%) scale(0.9);
+        opacity: 0.3;
+    }
+
+    .carousel-slide.next {
+        transform: translateX(15%) scale(0.9);
+        opacity: 0.3;
+    }
+
+    .carousel-prev,
+    .carousel-next {
         width: 36px;
         height: 50px;
         font-size: 1.5rem;
-        background: rgba(0,0,0,0.8);
+        background: rgba(0, 0, 0, 0.8);
     }
-    .carousel-prev { left: 0%; }
-    .carousel-next { right: 0%; }
+
+    .carousel-prev {
+        left: 0%;
+    }
+
+    .carousel-next {
+        right: 0%;
+    }
 }
 
 /* Game Showcase Section */
@@ -795,7 +854,8 @@ h6 {
     position: relative;
 }
 
-.gameplay-image img {
+.gameplay-image img,
+.gameplay-image video {
     width: 100%;
     border-radius: 12px;
     border: 1px solid var(--border-glow);
@@ -873,11 +933,25 @@ h6 {
     position: relative;
 }
 
-.monster-image img {
+.monster-image img,
+.monster-image video {
     width: 100%;
     border-radius: 12px;
     border: 1px solid rgba(236, 72, 153, 0.3);
     box-shadow: 0 20px 60px rgba(236, 72, 153, 0.15);
+}
+
+.monster-image::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(236, 72, 153, 0.4);
+    border-radius: 12px;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 .monster-content h2 {
@@ -907,6 +981,85 @@ h6 {
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+
+/* FAQ Section */
+.faq-section {
+    position: relative;
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, var(--darker-bg) 0%, rgba(10, 15, 25, 0.95) 100%);
+    z-index: 1;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(0, 242, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--neon-cyan);
+}
+
+.faq-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--neon-pink);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--neon-cyan);
+}
+
+.faq-item.active {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 20px var(--border-glow);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0;
 }
 
 /* CTA Section */
@@ -1150,83 +1303,7 @@ h6 {
     color: #fff;
 }
 
-/* Mobile Warning Modal */
-.mobile-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
 
-.mobile-modal.active {
-    display: flex;
-}
-
-.mobile-modal-content {
-    background: var(--card-bg);
-    border: 1px solid var(--border-glow);
-    border-radius: 16px;
-    padding: 3rem;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.mobile-modal-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, rgba(255, 107, 0, 0.2) 0%, rgba(255, 107, 0, 0.1) 100%);
-    border: 2px solid var(--emergency-orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-}
-
-.mobile-modal-icon svg {
-    width: 40px;
-    height: 40px;
-    color: var(--emergency-orange);
-}
-
-.mobile-modal h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.mobile-modal p {
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-}
-
-.mobile-modal-close {
-    background: transparent;
-    color: var(--neon-cyan);
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.875rem 2rem;
-    border: 2px solid var(--neon-cyan);
-    border-radius: 6px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-}
-
-.mobile-modal-close:hover {
-    background: rgba(0, 242, 255, 0.1);
-}
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -1319,17 +1396,34 @@ h6 {
     }
 
     /* Flat card stack on mobile rather than spread 3D */
-    .carousel-slide.active { transform: translateX(0) scale(1) translateZ(0); }
-    .carousel-slide.prev { transform: translateX(-15%) scale(0.9) translateZ(-50px); opacity: 0.3; }
-    .carousel-slide.next { transform: translateX(15%) scale(0.9) translateZ(-50px); opacity: 0.3; }
-    
-    .carousel-prev, .carousel-next {
+    .carousel-slide.active {
+        transform: translateX(0) scale(1) translateZ(0);
+    }
+
+    .carousel-slide.prev {
+        transform: translateX(-15%) scale(0.9) translateZ(-50px);
+        opacity: 0.3;
+    }
+
+    .carousel-slide.next {
+        transform: translateX(15%) scale(0.9) translateZ(-50px);
+        opacity: 0.3;
+    }
+
+    .carousel-prev,
+    .carousel-next {
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
     }
-    .carousel-prev { left: 2%; }
-    .carousel-next { right: 2%; }
+
+    .carousel-prev {
+        left: 2%;
+    }
+
+    .carousel-next {
+        right: 2%;
+    }
 }
 
 /* Scroll Animations */

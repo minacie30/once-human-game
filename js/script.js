@@ -12,33 +12,24 @@ document.querySelectorAll('[data-tracking]').forEach(element => {
     });
 });
 // =============================================================
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.querySelector(".gameplay-image video");
 
-// Mobile Detection
-function isMobileOrTablet() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const mobileKeywords = ['android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone', 'mobile', 'tablet'];
-    return mobileKeywords.some(keyword => userAgent.includes(keyword)) ||
-        (window.innerWidth <= 1024 && 'ontouchstart' in window);
-}
+    if (video) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.6 });
 
-function showMobileModal() {
-    const modal = document.getElementById('mobileModal');
-    if (modal) {
-        modal.classList.add('active');
+        observer.observe(video);
     }
-}
+});
 
-function closeMobileModal() {
-    const modal = document.getElementById('mobileModal');
-    if (modal) {
-        modal.classList.remove('active');
-    }
-}
-
-// Show mobile warning on page load if on mobile/tablet
-if (isMobileOrTablet()) {
-    showMobileModal();
-}
 
 // Header scroll effect
 const header = document.getElementById('header');
@@ -52,22 +43,7 @@ if (header) {
     });
 }
 
-// Sticky CTA visibility
-const stickyCta = document.getElementById('stickyCta');
-const hero = document.getElementById('hero');
 
-if (stickyCta && hero) {
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        // Appear only after scrolling past the hero section completely + 200px buffer
-        const heroBottom = hero.offsetTop + hero.offsetHeight;
-        if (scrollY > heroBottom + 200) {
-            stickyCta.classList.add('visible');
-        } else {
-            stickyCta.classList.remove('visible');
-        }
-    });
-}
 
 // Scroll animations
 const animateElements = document.querySelectorAll('.animate-on-scroll');
@@ -95,7 +71,7 @@ animateElements.forEach(element => {
 function createParticles() {
     const container = document.getElementById('particles');
     if (!container) return;
-    
+
     const particleCount = 30;
 
     for (let i = 0; i < particleCount; i++) {
@@ -142,7 +118,7 @@ if (slides.length > 0 && prevBtn && nextBtn && indicatorsContainer) {
         slides.forEach((slide, index) => {
             slide.classList.remove('active', 'prev', 'next', 'prev-far', 'next-far');
             dots[index].classList.remove('active');
-            
+
             // Hack to reset the CSS animation on the dot
             void dots[index].offsetWidth;
         });
@@ -158,7 +134,7 @@ if (slides.length > 0 && prevBtn && nextBtn && indicatorsContainer) {
         dots[currentSlide].classList.add('active');
         slides[prevIndex].classList.add('prev');
         slides[nextIndex].classList.add('next');
-        if(totalSlides > 3) {
+        if (totalSlides > 3) {
             slides[prevFarIndex].classList.add('prev-far');
             slides[nextFarIndex].classList.add('next-far');
         }
@@ -192,7 +168,7 @@ if (slides.length > 0 && prevBtn && nextBtn && indicatorsContainer) {
 
     // Auto-slide functionality
     function startAutoSlide() {
-        carouselInterval = setInterval(slideNext, animationDuration); 
+        carouselInterval = setInterval(slideNext, animationDuration);
     }
 
     function resetAutoSlide() {
@@ -214,7 +190,7 @@ if (slides.length > 0 && prevBtn && nextBtn && indicatorsContainer) {
             startAutoSlide();
             dots.forEach(d => d.style.animationPlayState = 'running');
         });
-        
+
         // Touch/swipe support for mobile
         let startX = 0;
         let endX = 0;
@@ -238,13 +214,37 @@ if (slides.length > 0 && prevBtn && nextBtn && indicatorsContainer) {
     }
 }
 
+// FAQ Accordion
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+
+        // Close all other items
+        faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        // Toggle current item
+        if (!isOpen) {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+    });
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
+        if (targetId === '#') return;
+
         const target = document.querySelector(targetId);
         if (target) {
             target.scrollIntoView({
